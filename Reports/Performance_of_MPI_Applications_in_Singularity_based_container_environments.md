@@ -6,6 +6,15 @@ The performance impact on virtualization is always important when it comes to HP
 
 ## Evaluation
 
+### Hardware used during evaluation
+
+For each of the nodes:
+
+- CPU: Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz, HT Enabled
+- Memory: 128GiB
+- InfiniBand Card: Mellanox QDR 40Gbps
+- Storage: Hitachi HUA7220 1TB Harddisk, NFSed via IPoIB to node1
+
 ### Software Versions during evaluation
 
 - Graph500 v3.0.0, running *graph500_reference_bfs* (Compiled by GCC 8.3.0)
@@ -53,11 +62,11 @@ We'll illustrate how to setup containered environments in the following paragrap
 
 ### Error elimination
 
-We've used a handmade script to monitor the CPU usage during the entire test. It wakes up at a regular interval (15s), using `ssh` to login and `ps aux` to record the CPU usage. Then, another script is used to determine the shares of CPU used by Graph500 and all other applications.
+We've used [a handmade script](../TestScripts/perf_mon.sh) to monitor the CPU usage during the entire test. It wakes up at a regular interval (15s), using `ssh` to login and `ps aux` to record the CPU usage. Then, [another script](../TestScripts/perf_stat.py) is used to determine the shares of CPU used by Graph500 and all other applications.
 
 ### Result
 
-Two nodes, each 32 processes are used (硬件部分todo) . *BFS Harmonic Mean TEPS* are used to measure the performance.
+Two nodes, each 32 processes are used. *BFS Harmonic Mean TEPS* are used to measure the performance.
 
 |             | Containered | Non-containered |
 | ----------- | ----------- | --------------- |
