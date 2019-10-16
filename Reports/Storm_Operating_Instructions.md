@@ -20,7 +20,7 @@ A modified version of DiSNI is used in this program, forked from the official v2
 1. Pull out sources
 
    - Either extract `disni-2.1-modified.tar.gz` shipped with our report
-   - Or use `git clone https://github.com/libreliu/disni && cd disni && git switch 2.1-modified` 
+   - Or use `git clone https://github.com/libreliu/disni && cd disni && git checkout 2.1-modified` 
 
 2. Build & install libdisni
 
@@ -65,16 +65,16 @@ A modified version of DiSNI is used in this program, forked from the official v2
    > Higher version of Zookeeper (>=3.5) have a built-in web console enabled at 8080 by default.
    >
    > Special configuration in `zoo.cfg` is necessary for 3.5 users, since Storm UI will also bind to that port.
-   
+
 2. Configure Zookeeper
 
    ```shell
    cd zookeeper-3.4.5/conf
    vim zoo.cfg
    ```
-   
+
    An example `zoo.cfg`:
-   
+
    ```sh
    tickTime=2000
    dataDir=/tmp/zoo_tmp
@@ -114,7 +114,7 @@ DiSNI ver. Storm is based on Apache Storm v2.0.0, the official release.
 
 1. Pull out sources
    - Either extract `apache-storm-v2.0.0-src-with-disni-messaging-plugin.tar.gz` shipped with our report
-   - Or use `git clone https://github.com/libreliu/storm && cd storm && git switch storm-rdma`
+   - Or use `git clone https://github.com/libreliu/storm && cd storm && git checkout storm-rdma`
 
 2. Build & install Storm to local repository
 
@@ -145,28 +145,28 @@ DiSNI ver. Storm is based on Apache Storm v2.0.0, the official release.
    storm.zookeeper.port: 2181            # Zookeeper client port
    nimbus.seeds: ["mynode1"]             # The node(s) to run Storm Nimbus
                                          # type things like ["a", "b"] if you want multiple nimbus
-    
+
    # The following filter configurations are used to bind the correct IP for DiSNI messaging plugin.
    storm.messaging.disni.binding.filter.enable: true  # Controls if we'll enable the plugin
    storm.messaging.disni.binding.filter.list:         # Controls the list to be filtered out
        - "vir"
        - "docker"
        - "tun0"
-   
+
    # When true, only interfaces whose name is in filter list will be discarded.
    # When false, interfaces that contains strings in the list will also be discarded.
    storm.messaging.disni.binding.filter.strict: false
-   
+
    # This is used to control how many recv Verbs call shall be initiated during new client arrive
    # Setting this too low will experience WC status 13 on client side
    # Will consume (recv.call.initialized) * (recv.buffer.size) bytes of mem, so setting too high means you need to adjust worker.heap.memory.mb to meet the memory requirements
    storm.messaging.disni.recv.call.initialized: 25 
    storm.messaging.disni.recv.buffer.size: 1048576
    worker.heap.memory.mb: 4096
-   
+
    # Use which messaging plugin
    storm.messaging.transport: "org.apache.storm.messaging.disni.Context"
-   
+
    # Accumulate buffer.size of tuples before handing them to the messaging plugin
    topology.transfer.buffer.size: 32000
    ```
@@ -194,7 +194,7 @@ DiSNI ver. Storm is based on Apache Storm v2.0.0, the official release.
 
    ![1570541014671](assets/1570541014671.png)
 
-   
+
 
 ### Storm (JXIO)
 
@@ -232,7 +232,7 @@ JXIO ver. Storm is based on Apache Storm v2.0.1, the official release.
         - "mynode2"
     storm.zookeeper.port: 2181
     nimbus.seeds: ["mynode1"]
-    
+
     # Choose JXIO Context
     storm.messaging.transport: "org.apache.storm.messaging.zzy_JXIO.Context"
     topology.transfer.buffer.size: 32000
