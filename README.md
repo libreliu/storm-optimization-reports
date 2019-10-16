@@ -17,9 +17,9 @@ Jiawei Fu ([iBug](https://github.com/ibug))
 
 ## Codes
 
-Storm with DiSNI Messaging Plugin: [libreliu/storm](https://github.com/libreliu/storm)
+Storm with DiSNI Messaging Plugin: [libreliu/storm](https://github.com/libreliu/storm) (Branch: `storm-rdma`)
 
-Storm with JXIO Messaging Plugin: [zzymm/storm](https://github.com/zzymm/storm)
+Storm with JXIO Messaging Plugin: [zzymm/storm](https://github.com/zzymm/storm) (Branch: `storm-rdma-jxio`)
 
 Messaging Wrapper used for DiSNI Standalone Test: [libreliu/disni-plugin-tester](https://github.com/libreliu/disni-plugin-tester)
 
