@@ -33,7 +33,7 @@ Our topology code for test: `TestTopology/ExclamationTopology.java`
 
 ### Apache Storm - DiSNI & JXIO RDMA Implementation
 
-[RDMA Optimization on Apache Storm](): Report Coming Soon~
+RDMA Optimization on Apache Storm: [Report link](Reports/Storm_Report.pdf)
 
 ### Singularity & RDMA Performance Measurement
 
